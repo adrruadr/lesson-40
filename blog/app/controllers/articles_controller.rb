@@ -48,13 +48,10 @@ end
 
 
 def destroy
-  @article = Article.delete(params[:id])
-  if 
-      @article.save
-      redirect_to @article
-    else
-      render action: 'new'
-    end
+  @article = Article.find(params[:id])
+  @article.destroy
+
+      redirect_to articles_path
 
 end
 
